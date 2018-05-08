@@ -1,4 +1,4 @@
-var express = requre("express");
+var express = require("express");
 var router = express.Router();
 var pho = require("../models/pho.js");
 
@@ -6,10 +6,11 @@ router.get("/", function(req, res) {
     var phoArray=[];
 
     pho.selectAll(function(data){
-        for( var=i=0; i<dat.length; i++){
+        for( var i=0; i < data.length; i++){
            phoArray.push(data[i]);
         }
-        res.render("index", info);
+        console.log(phoArray);
+        res.render("index", {phoArray: phoArray});
     });
 });
 
@@ -19,4 +20,4 @@ router.get("/", function(req, res) {
 
 
 
-module.exports = 
+module.exports = router;
